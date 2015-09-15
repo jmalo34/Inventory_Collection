@@ -6,28 +6,39 @@
 </head>
 <body>
     <div class='container'>
-    <h1>Types</h1>
+    <h1>Taking Inventory</h1>
+        <ul class='nav nav-tabs'>
+            <li><a href="/">Home</a></li>
+            <li><a href="/collections">Collections</a></li>
+            <li class='active'><a href="/types">Types</a></li>
+        </ul>
 
     {% if types is not empty %}
-        <p>Here are all your types:</p>
+        <h5>Types:</h5>
         <ul>
             {% for type in types %}
                 <li>{{ type.getDescript}}</li>
             {% endfor %}
         </ul>
     {% endif %}
-
+    {% if types is empty %}
+    <br>
+    <p><em>No Types listed</em></p>
+    {% endif %}
+        <div class='form-group' style='width: 45%'>
         <form action='/types' method='post'>
-            <div class='form-group'>
-                <label for='descript'>Type Description</label>
                 <input id='descript' name='descript' class='form-control' type='text'>
-            </div>
-            <button type='submit' class='btn-success'>Add Type</button>
+                <button type='submit' class='btn-success'>Add Type</button>
         </form>
+        </div>
+    <br>
+        <div class='text-center'>
         <form action='/delete_types' method='post'>
-            <button type='submit'>Clear</button>
+            <button type='submit' class='btn btn-xs'>Clear</button>
         </form>
+            <br>
+            <p><a href='/'>Taking Inventory: Home</a></p>
+        </div>
     </div>
-    <p><a href='/'>Back to start</a></p>
 </body>
 </html>

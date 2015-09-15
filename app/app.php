@@ -27,6 +27,11 @@
         return $app['twig']->render('types.html.twig', array('types' => Type::getAll()));
     });
 
+    $app->get("/searches", function() use ($app)
+    {
+        return $app['twig']->render('searches.html.twig', array('searches' => Search::getAll()));
+    });
+
     $app->post("/collections", function() use ($app)
     {
         $collection = new Collection($_POST['thing']);
@@ -41,6 +46,13 @@
         return $app['twig']->render('types.html.twig', array('types' => Type::getAll()));
     });
 
+    $app->post("/searches", function() use ($app)
+    {
+        $search = new Search($_POST['find']);
+        $search->save();
+        return $app['twig']->render('searches.html.twig', array('searches' => Search::getAll()));
+    });
+
     $app->post("/delete_collections", function() use ($app)
     {
         Collection::deleteAll();
@@ -50,7 +62,7 @@
     $app->post("/delete_types", function() use ($app)
     {
         Type::deleteAll();
-        return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('delete_types.html.twig');
     });
 
     return $app;

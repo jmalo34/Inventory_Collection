@@ -6,30 +6,39 @@
 </head>
 <body>
     <div class='container'>
-    <h1>Collections</h1>
+    <h1>Taking Inventory</h1>
+        <ul class='nav nav-tabs'>
+            <li><a href="/">Home</a></li>
+            <li class='active'><a href="/collections">Collections</a></li>
+            <li><a href="/types">Types</a></li>
+        </ul>
 
         {% if collections is not empty%}
-            <p>You've listed collections of the following things:</p>
+            <h5>Collections:</h5>
             <ul>
                 {% for collection in collections %}
                     <li>{{ collection.getThing }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
-        <div class='form-group'>
+        {% if collections is empty %}
+        <br>
+        <p><em>No Collections listed</em><p>
+            {% endif %}
+        <div class='form-group' style='width: 45%'>
         <form action='/collections' method='post'>
-                <label for='thing'>Things I have collections of:</label>
                 <input id='thing' name='thing' class='form-control' type='text'>
-
-                <button type='submit' class='btn-success'>Add another collection</button>
+                <button type='submit' class='btn-success'>Add collection</button>
         </form>
         </div>
-        <div class='container'>
+        <br>
+        <div class='text-center'>
         <form action='/delete_collections' method='post'>
-                <button type='submit'>Clear</button>
+            <button type='submit' class='btn btn-xs'>Clear</button>
         </form>
+            <br>
+            <p><a href='/'>Taking Inventory: Home</a></p>
         </div>
-        <p><a href='/'>go home</a></p>
     </div>
 </body>
 </html>
