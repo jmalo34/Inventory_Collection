@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory</title>
+</head>
+<body>
+    <h1>Types</h1>
+
+    {% if types is not empty %}
+        <p>Here are all your types:</p>
+        <ul>
+            {% for type in types %}
+                <li>{{ type.getDescript}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action='/types' method='post'>
+        <label for='descript'>Type Description</label>
+        <input id='descript' name='descript' type='text'>
+
+        <button type='submit'>Add Type</button>
+    </form>
+    <form action='/delete_types' method='post'>
+        <button type='submit'>Clear</button>
+    </form>
+
+    <p><a href='/'>Back to start</a></p>
+</body>
+</html>
