@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
     <title>Inventory</title>
 </head>
 <body>
+    <div class='container'>
     <h1>Types</h1>
 
     {% if types is not empty %}
@@ -15,16 +17,17 @@
         </ul>
     {% endif %}
 
-    <form action='/types' method='post'>
-        <label for='descript'>Type Description</label>
-        <input id='descript' name='descript' type='text'>
-
-        <button type='submit'>Add Type</button>
-    </form>
-    <form action='/delete_types' method='post'>
-        <button type='submit'>Clear</button>
-    </form>
-
+        <form action='/types' method='post'>
+            <div class='form-group'>
+                <label for='descript'>Type Description</label>
+                <input id='descript' name='descript' class='form-control' type='text'>
+            </div>
+            <button type='submit' class='btn-success'>Add Type</button>
+        </form>
+        <form action='/delete_types' method='post'>
+            <button type='submit'>Clear</button>
+        </form>
+    </div>
     <p><a href='/'>Back to start</a></p>
 </body>
 </html>

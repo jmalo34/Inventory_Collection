@@ -23,8 +23,8 @@
         function test_save()
         {
             //Arrange
-            $ticket = "Run the World";
-            $test_collection = new Collection($ticket);
+            $thing = "Run the World";
+            $test_collection = new Collection($thing);
 
             //Act
             $test_collection->save();
@@ -37,11 +37,11 @@
         function test_getAll()
         {
             //Arrange
-            $ticket = "Run the World";
-            $ticket2 = "20 20 Experience";
-            $test_collection = new Collection($ticket);
+            $thing = "Run the World";
+            $thing2 = "20 20 Experience";
+            $test_collection = new Collection($thing);
             $test_collection->save();
-            $test_collection2 = new Collection($ticket2);
+            $test_collection2 = new Collection($thing2);
             $test_collection2->save();
 
             //Act
@@ -54,11 +54,11 @@
         function test_deleteAll()
         {
             //Arrange
-            $ticket = "Run the World";
-            $ticket2 = "20 20 Experience";
-            $test_collection = new Collection($ticket);
+            $thing = "Run the World";
+            $thing2 = "20 20 Experience";
+            $test_collection = new Collection($thing);
             $test_collection->save();
-            $test_collection2 = new Collection($ticket2);
+            $test_collection2 = new Collection($thing2);
             $test_collection2->save();
 
             //Act
@@ -72,9 +72,9 @@
         function test_getId()
         {
             //Arrange
-            $ticket = "Run the World";
+            $thing = "Run the World";
             $id = 1;
-            $test_Collection = new Collection($ticket, $id);
+            $test_Collection = new Collection($thing, $id);
 
             //Act
             $result = $test_Collection->getId();
@@ -86,11 +86,11 @@
         function test_find()
         {
             //Arrange
-            $ticket = "Run the World";
-            $ticket2 = "20 20 Experience";
-            $test_collection = new Collection($ticket);
+            $thing = "Run the World";
+            $thing2 = "20 20 Experience";
+            $test_collection = new Collection($thing);
             $test_collection->save();
-            $test_collection2 = new Collection($ticket2);
+            $test_collection2 = new Collection($thing2);
             $test_collection2->save();
 
             //Act

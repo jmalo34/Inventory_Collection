@@ -1,23 +1,23 @@
 <?php
     class Collection
     {
-        private $ticket;
+        private $thing;
         private $id;
 
-        function __construct($ticket, $id = null)
+        function __construct($thing, $id = null)
         {
-            $this->ticket = $ticket;
+            $this->thing = $thing;
             $this->id = $id;
         }
 
-        function setTicket($new_ticket)
+        function setThing($new_thing)
         {
-            $this->ticket = (string) $new_ticket;
+            $this->thing = (string) $new_thing;
         }
 
-        function getTicket()
+        function getThing()
         {
-            return $this->ticket;
+            return $this->thing;
         }
 
         function getId()
@@ -27,7 +27,7 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO collections (ticket) VALUES ('{$this->getTicket()}');");
+            $GLOBALS['DB']->exec("INSERT INTO collections (thing) VALUES ('{$this->getThing()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -37,9 +37,9 @@
             $collections = array();
             foreach($returned_collections as $collection)
             {
-                $ticket = $collection['ticket'];
+                $thing = $collection['thing'];
                 $id = $collection['id'];
-                $new_collection = new Collection($ticket, $id);
+                $new_collection = new Collection($thing, $id);
                 array_push($collections, $new_collection);
             }
             return $collections;

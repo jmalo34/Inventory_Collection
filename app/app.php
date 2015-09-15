@@ -29,7 +29,7 @@
 
     $app->post("/collections", function() use ($app)
     {
-        $collection = new Collection($_POST['ticket']);
+        $collection = new Collection($_POST['thing']);
         $collection->save();
         return $app['twig']->render('collections.html.twig', array('collections' => Collection::getAll()));
     });
@@ -44,7 +44,7 @@
     $app->post("/delete_collections", function() use ($app)
     {
         Collection::deleteAll();
-        return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('delete_collections.html.twig');
     });
 
     $app->post("/delete_types", function() use ($app)
